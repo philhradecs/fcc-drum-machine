@@ -14,7 +14,7 @@ class ControlPanel extends Component {
 	render() {
 		return (
 			<PanelWrapper>
-				<Display />
+				<Display name={this.props.name} />
 				<Settings />
 			</PanelWrapper>
 		)

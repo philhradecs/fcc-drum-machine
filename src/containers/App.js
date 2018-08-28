@@ -33,17 +33,16 @@ class App extends Component {
   }
   handleDrumClick(event) {
     const audio = event.target.firstElementChild
-    this.setState({ name: audio.name})
+    this.setState({ name: audio.dataset.name})
     audio.volume = this.state.volume
     audio.play()
-    debugger
   }
   render() {
     return (
       <Wrapper>
         <Drum id="drum-machine">
           <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
-          <ControlPanel />
+          <ControlPanel name={this.state.name}/>
         </Drum>
       </Wrapper>
     )

@@ -10,12 +10,13 @@ const Pad = styled.div`
 
 class Button extends Component {
 	render() {
-		const id = this.props.data.id;
-		const src = this.props.data.src;
+		const id = this.props.data.id
+		const src = this.props.data.src
+		const name = this.props.data.name
 		return (
 			<Pad className="drum-pad" onClick={this.props.handleDrumClick} >
 				{id}
-				<audio src={src} id={id} className="clip" />
+				<audio src={src} id={id} data-name={name} className="clip" />
 			</Pad>
 		)
 	}

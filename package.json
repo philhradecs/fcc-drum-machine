@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://baumzeit.github.io/fcc-drum-machine/",
   "dependencies": {
+    "eslint": "^5.4.0",
     "npm": "^6.4.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

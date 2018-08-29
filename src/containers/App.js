@@ -51,9 +51,9 @@ class App extends Component {
   }
 
   handleKeyDown(event) {
-    if (event.key) { // only process truthy values
+    if (event.key) { // only process truthy values for key name
       const audio = document.getElementById(event.key.toUpperCase())
-      if (audio) { // an element with id of pressed key actually exists
+      if (audio) { // an element with the id of the pressed key name actually exists
         this.playSound(audio)
       }
     }
@@ -68,7 +68,9 @@ class App extends Component {
     if (this.state.switchedOn) {
       this.setState({ name: audio.parentElement.id })
       audio.volume = this.state.volume
-      // audio.play()
+      audio.pause();
+      audio.currentTime = 0;
+      audio.play()
     }
   }
 

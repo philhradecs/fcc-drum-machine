@@ -16,7 +16,7 @@ class Button extends Component {
 		return (
 			<Pad className="drum-pad" onClick={this.props.handleDrumClick} id={name}>
 				{id}
-				<audio src={src} id={id} className="clip" />
+				<audio src={src} id={id} className="clip" preload="auto"/>
 			</Pad>
 		)
 	}

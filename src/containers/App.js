@@ -35,19 +35,27 @@ class App extends Component {
     this.handleVolumeChange = this.handleVolumeChange.bind(this)
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }
-
+  // includes freeCodeCamp test suite
+  componentDidMount() { 
+    const tests = document.createElement("script");
+    tests.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+    tests.async = true;
+    document.body.appendChild(tests);
+  }
+  // event listeners for keyboard control
   componentWillMount() {
     document.addEventListener("keydown", this.handleKeyDown);
   }
-
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKeyDown);
   }
 
   handleKeyDown(event) {
-    const triggeredElement = document.getElementById(event.key.toUpperCase())
-    if (triggeredElement) {
-      this.playSound(triggeredElement)
+    if (event.key) { // only process truthy values
+      const audio = document.getElementById(event.key.toUpperCase())
+      if (audio) { // an element with id of pressed key actually exists
+        this.playSound(audio)
+      }
     }
   }
 
@@ -56,22 +64,22 @@ class App extends Component {
     this.playSound(audio)
   }
 
-  playSound(el) {
+  playSound(audio) {
     if (this.state.switchedOn) {
-      this.setState({ name: el.dataset.name})
-      el.volume = this.state.volume
+      this.setState({ name: audio.parentElement.id })
+      audio.volume = this.state.volume
       // audio.play()
     }
   }
 
   handlePowerSwitch() {
-    const message = this.state.switchedOn ? '' : 'Jam away!'
-    this.setState({ name: message })
+    const message = this.state.switchedOn ? '' : 'Jam away!' 
+    this.setState({ name: message }) // show welcome message after switching on
     this.setState({ switchedOn: !this.state.switchedOn})
   }
 
   handleBankSwitch() {
-    const newBank = 1 - this.state.bank //toggles between 0 and 1
+    const newBank = 1 - this.state.bank // toggles between 0 and 1
     this.setState({ bank: newBank }) 
   }
 

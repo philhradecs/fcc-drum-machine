@@ -14,9 +14,9 @@ class Button extends Component {
 		const src = this.props.data.src
 		const name = this.props.data.name
 		return (
-			<Pad className="drum-pad" onClick={this.props.handleDrumClick} >
+			<Pad className="drum-pad" onClick={this.props.handleDrumClick} id={name}>
 				{id}
-				<audio src={src} id={id} data-name={name} className="clip" />
+				<audio src={src} id={id} className="clip" />
 			</Pad>
 		)
 	}

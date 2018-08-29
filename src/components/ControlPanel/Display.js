@@ -12,7 +12,7 @@ const Dsp = styled.div`
 class Display extends Component {
 	render() {
 		return (
-			<Dsp switchedOn={this.props.switchedOn}>{this.props.name}</Dsp>
+			<Dsp switchedOn={this.props.switchedOn} id="display">{this.props.name}</Dsp>
 		)
 	}
 }

@@ -15,7 +15,11 @@ class ControlPanel extends Component {
 		return (
 			<PanelWrapper>
 				<Display switchedOn={this.props.switchedOn} name={this.props.name} />
-				<Settings handlePowerSwitch={this.props.handlePowerSwitch} handleBankSwitch={this.props.handleBankSwitch}/>
+				<Settings 
+					handlePowerSwitch={this.props.handlePowerSwitch}
+					handleBankSwitch={this.props.handleBankSwitch}
+					handleVolumeChange={this.props.handleVolumeChange}
+				/>
 			</PanelWrapper>
 		)
 	}

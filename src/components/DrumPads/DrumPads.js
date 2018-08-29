@@ -37,7 +37,6 @@ const data = [
 
 class DrumPads extends Component {
 	render() {
-		debugger
 		return (
 			<Grid>
 				{data[this.props.bank].map(btnData => {

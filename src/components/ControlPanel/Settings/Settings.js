@@ -16,7 +16,7 @@ class Settings extends Component {
 		return (
 			<SettingsWrapper>
 				<Switch handleChange={this.props.handlePowerSwitch}/>
-				<VolumeSlider />
+				<VolumeSlider handleChange={this.props.handleVolumeChange} />
 				<Switch handleChange={this.props.handleBankSwitch}/>
 			</SettingsWrapper>
 		)

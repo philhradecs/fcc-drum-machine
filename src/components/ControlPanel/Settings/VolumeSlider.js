@@ -9,7 +9,9 @@ const Slider = styled.div`
 class VolumeSlider extends Component {
 	render() {
 		return (
-			<Slider>------------|---</Slider>
+			<Slider>
+  			<input type="range" min="0" max="1" defaultValue="0.5" step="0.01" onChange={this.props.handleChange}/>
+			</Slider>
 		)
 	}
 }

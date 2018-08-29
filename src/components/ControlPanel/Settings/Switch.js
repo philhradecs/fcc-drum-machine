@@ -35,7 +35,7 @@ const Toggle = styled.input`
 class Switch extends Component {
 	render() {
 		return (
-			<Toggle type="checkbox" onChange={this.props.handleChange}></Toggle>
+			<Toggle type="checkbox" onChange={this.props.handleChange} />
 		)
 	}
 }

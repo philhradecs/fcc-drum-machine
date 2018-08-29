@@ -32,13 +32,15 @@ class App extends Component {
     this.handleDrumClick = this.handleDrumClick.bind(this)
     this.handlePowerSwitch = this.handlePowerSwitch.bind(this)
     this.handleBankSwitch = this.handleBankSwitch.bind(this)
+    this.handleVolumeChange = this.handleVolumeChange.bind(this)
   }
   handleDrumClick(event) {
     if (this.state.switchedOn) {
       const audio = event.target.firstElementChild
       this.setState({ name: audio.dataset.name})
       audio.volume = this.state.volume
-      audio.play()
+      debugger
+      // audio.play()
     }
   }
   handlePowerSwitch() {
@@ -51,6 +53,10 @@ class App extends Component {
     const newBank = 1 - this.state.bank //toggles between 0 and 1
     this.setState({ bank: newBank }) 
   }
+  handleVolumeChange(event) {
+    const slider = event.target
+    this.setState({ volume: slider.valueAsNumber })
+  }
   render() {
     return (
       <Wrapper>
@@ -60,6 +66,7 @@ class App extends Component {
                         name={this.state.name} 
                         handlePowerSwitch={this.handlePowerSwitch} 
                         handleBankSwitch={this.handleBankSwitch}
+                        handleVolumeChange={this.handleVolumeChange}
           />
         </Drum>
       </Wrapper>

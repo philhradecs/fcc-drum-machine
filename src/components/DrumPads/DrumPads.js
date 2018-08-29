@@ -4,11 +4,12 @@ import Button from "./Button"
 import soundData from "./soundData.js"
 
 const Grid = styled.div`
-	display: grid
-	grid-gap: 12px
-	grid-template-rows: 1fr 1fr 1fr
-	grid-template-columns: 1fr 1fr 1fr
-	background-color: orange
+	display: grid;
+	grid-gap: 16px;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding: 22px;
+	border-radius: 12px 0 0 12px;
 `
 
 class DrumPads extends Component {

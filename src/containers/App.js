@@ -4,20 +4,27 @@ import DrumPads from "../components/DrumPads/DrumPads"
 import ControlPanel from "../components/ControlPanel/ControlPanel"
 
 const Wrapper = styled.div`
+  box-sizing: border-box;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ddd;
+  background: url('https://s26.postimg.cc/je8d10p7d/man-rock-record-music-vinyl-vintage-retro-old-male-equipment-ele.jpg');
+  background-size: cover;
+  border-radius: 22px;
+  border: 7px solid white;
 `
 
 const Drum = styled.div`
   width: 660px;
-  height: 400px;
-  background-color: purple;
+  height: 350px;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
+  border: 1px solid white;
+  border-radius: 12px;
+  background-color: #a2a0a0;
+  box-shadow: 8px 10px 35px -3px #111;
 `
 
 class App extends Component {
@@ -93,6 +100,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
         <Drum id="drum-machine">
           <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
           <ControlPanel switchedOn={this.state.switchedOn} 

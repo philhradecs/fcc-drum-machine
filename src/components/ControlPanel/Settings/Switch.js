@@ -7,7 +7,7 @@ const Toggle = styled.input`
 		width: 6em;
 		height: 3em;
 		border-radius: 3em;
-		background-color: #ddd;
+		background-color: #bbb;
 		outline: 0;
 		cursor: pointer;
 		transition: background-color 0.09s ease-in-out;
@@ -25,17 +25,32 @@ const Toggle = styled.input`
 		transition: left 0.09s ease-in-out;
 	}
 	&:checked {
-		background-color: #3af;
+		background-color: #a44;
 	}
 	&:checked:after {
 			left: 3em;
 	}
 `
 
+const Label = styled.div`
+	font-size: 1em;
+	color: white;
+`
+
+const Wrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+`
+
 class Switch extends Component {
 	render() {
 		return (
-			<Toggle type="checkbox" onChange={this.props.handleChange} />
+			<Wrapper>
+				<Label>{this.props.labelLeft}</Label>
+				<Toggle type="checkbox" onChange={this.props.handleChange} />
+				<Label>{this.props.labelRight}</Label>
+			</Wrapper>
 		)
 	}
 }

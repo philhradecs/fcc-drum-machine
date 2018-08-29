@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Slider = styled.div`
-	background-color: brown
-	color: white
+	background-color: brown;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 
 class VolumeSlider extends Component {

@@ -2,10 +2,12 @@ import React, { Component } from "react"
 import styled from 'styled-components'
 
 const Pad = styled.div`
-	display: flex
-	align-items: center
-	justify-content: center
-	background-color: #ABC
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #ddd;
+	box-shadow: 2px 1px 5px #666;
+	border-radius: 3px;
 `
 
 class Button extends Component {

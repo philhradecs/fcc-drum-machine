@@ -1,12 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-`
-
 const Toggle = styled.input`
 	& {
 		appearance: none;
@@ -41,9 +35,7 @@ const Toggle = styled.input`
 class Switch extends Component {
 	render() {
 		return (
-			<Wrapper>
-				<Toggle type="checkbox"></Toggle>
-			</Wrapper>
+			<Toggle type="checkbox" onChange={this.props.handleChange}></Toggle>
 		)
 	}
 }

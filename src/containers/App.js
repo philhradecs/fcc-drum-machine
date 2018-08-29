@@ -33,30 +33,53 @@ class App extends Component {
     this.handlePowerSwitch = this.handlePowerSwitch.bind(this)
     this.handleBankSwitch = this.handleBankSwitch.bind(this)
     this.handleVolumeChange = this.handleVolumeChange.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
+
+  componentWillMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
+  handleKeyDown(event) {
+    const triggeredElement = document.getElementById(event.key.toUpperCase())
+    if (triggeredElement) {
+      this.playSound(triggeredElement)
+    }
+  }
+
   handleDrumClick(event) {
+    const audio = event.target.firstElementChild
+    this.playSound(audio)
+  }
+
+  playSound(el) {
     if (this.state.switchedOn) {
-      const audio = event.target.firstElementChild
-      this.setState({ name: audio.dataset.name})
-      audio.volume = this.state.volume
-      debugger
+      this.setState({ name: el.dataset.name})
+      el.volume = this.state.volume
       // audio.play()
     }
   }
+
   handlePowerSwitch() {
     const message = this.state.switchedOn ? '' : 'Jam away!'
     this.setState({ name: message })
-
     this.setState({ switchedOn: !this.state.switchedOn})
   }
+
   handleBankSwitch() {
     const newBank = 1 - this.state.bank //toggles between 0 and 1
     this.setState({ bank: newBank }) 
   }
+
   handleVolumeChange(event) {
     const slider = event.target
     this.setState({ volume: slider.valueAsNumber })
   }
+
   render() {
     return (
       <Wrapper>

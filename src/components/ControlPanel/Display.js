@@ -5,13 +5,16 @@ const Dsp = styled.div`
 	display: flex
 	align-items: center
 	justify-content: center
-	background-color: green
+	background: green
+	${({ switchedOn }) => switchedOn && `
+		background: Chartreuse
+	`}
 `
 
 class Display extends Component {
 	render() {
 		return (
-			<Dsp>{this.props.name}</Dsp>
+			<Dsp switchedOn={this.props.switchedOn}>{this.props.name}</Dsp>
 		)
 	}
 }

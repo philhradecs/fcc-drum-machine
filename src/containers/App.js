@@ -24,12 +24,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      name: '',
-      switchedOn: false,
+      name: 'Don\'t hold back',
+      switchedOn: true,
       volume: 0.5,
       bank: 0
     }
     this.handleDrumClick = this.handleDrumClick.bind(this)
+    this.handlePowerSwitch = this.handlePowerSwitch.bind(this)
   }
   handleDrumClick(event) {
     const audio = event.target.firstElementChild
@@ -37,12 +38,15 @@ class App extends Component {
     audio.volume = this.state.volume
     audio.play()
   }
+  handlePowerSwitch() {
+    this.setState({ switchedOn: !this.switchedOn})
+  }
   render() {
     return (
       <Wrapper>
         <Drum id="drum-machine">
           <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
-          <ControlPanel name={this.state.name}/>
+          <ControlPanel switchedOn={this.state.switchedOn} name={this.state.name}/>
         </Drum>
       </Wrapper>
     )

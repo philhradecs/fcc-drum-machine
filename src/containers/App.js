@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import DrumPads from "../components/DrumPads/DrumPads"
-import ControlPanel from "../components/ControlPanel/ControlPanel"
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import DrumPads from '../components/DrumPads/DrumPads'
+import ControlPanel from '../components/ControlPanel/ControlPanel'
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -28,7 +28,7 @@ const Drum = styled.div`
 `
 
 class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       name: '',
@@ -43,71 +43,74 @@ class App extends Component {
     this.handleKeyDown = this.handleKeyDown.bind(this)
   }
   // includes freeCodeCamp test suite
-  componentDidMount() { 
-    const tests = document.createElement("script");
-    tests.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
-    tests.async = true;
-    document.body.appendChild(tests);
+  componentDidMount () {
+    const tests = document.createElement('script')
+    tests.src = 'https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js'
+    tests.async = true
+    document.body.appendChild(tests)
   }
   // event listeners for keyboard control
-  componentWillMount() {
-    document.addEventListener("keydown", this.handleKeyDown);
+  componentWillMount () {
+    document.addEventListener('keydown', this.handleKeyDown)
   }
-  componentWillUnmount() {
-    document.removeEventListener("keydown", this.handleKeyDown);
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.handleKeyDown)
   }
 
-  handleKeyDown(event) {
-    if (event.key) { // only process truthy values for key name
+  handleKeyDown (event) {
+    if (event.key) {
+      // only process truthy values for key name
       const audio = document.getElementById(event.key.toUpperCase())
-      if (audio) { // an element with the id of the pressed key name actually exists
+      if (audio) {
+        // an element with the id of the pressed key name actually exists
         this.playSound(audio)
       }
     }
   }
 
-  handleDrumClick(event) {
+  handleDrumClick (event) {
     const audio = event.target.firstElementChild
     this.playSound(audio)
   }
 
-  playSound(audio) {
+  playSound (audio) {
     if (this.state.switchedOn) {
       this.setState({ name: audio.parentElement.id })
       audio.volume = this.state.volume
-      audio.pause();
-      audio.currentTime = 0;
+      audio.pause()
+      audio.currentTime = 0
       audio.play()
     }
   }
 
-  handlePowerSwitch() {
-    const message = this.state.switchedOn ? '' : 'Jam away!' 
+  handlePowerSwitch () {
+    const message = this.state.switchedOn ? '' : 'Jam away!'
     this.setState({ name: message }) // show welcome message after switching on
-    this.setState({ switchedOn: !this.state.switchedOn})
+    this.setState({ switchedOn: !this.state.switchedOn })
   }
 
-  handleBankSwitch() {
+  handleBankSwitch () {
     const newBank = 1 - this.state.bank // toggles between 0 and 1
-    this.setState({ bank: newBank }) 
+    this.setState({ bank: newBank })
   }
 
-  handleVolumeChange(event) {
+  handleVolumeChange (event) {
     const slider = event.target
     this.setState({ volume: slider.valueAsNumber })
   }
 
-  render() {
+  render () {
     return (
       <Wrapper>
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
         <Drum id="drum-machine">
           <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
-          <ControlPanel switchedOn={this.state.switchedOn} 
-                        name={this.state.name} 
-                        handlePowerSwitch={this.handlePowerSwitch} 
-                        handleBankSwitch={this.handleBankSwitch}
-                        handleVolumeChange={this.handleVolumeChange}
+          <ControlPanel
+            switchedOn={this.state.switchedOn}
+            name={this.state.name}
+            handlePowerSwitch={this.handlePowerSwitch}
+            handleBankSwitch={this.handleBankSwitch}
+            handleVolumeChange={this.handleVolumeChange}
           />
         </Drum>
       </Wrapper>

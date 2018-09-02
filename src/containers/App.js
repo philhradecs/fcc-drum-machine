@@ -16,15 +16,38 @@ const Wrapper = styled.div`
 `
 
 const Drum = styled.div`
-  width: 660px;
-  height: 350px;
+  width: 640px;
+  height: 330px;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'pads controls';
+  grid-gap: 26px;
   border: 1px solid white;
   border-radius: 12px;
-  background-color: #a2a0a0;
+  background: url('https://s26.postimg.cc/3x00onm9l/steel_surface_Small.jpg');
+  background-size: cover;
   box-shadow: 8px 10px 35px -3px #111;
+  padding: 22px 22px 22px 22px;
+
+  @media (max-width: 800px) {
+    height: 640px;
+    width: 280px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'controls'
+    'pads';
+  }
+`
+
+const Controls = styled.div`
+  grid-area: controls;
+  margin: 0;
+  height: 100%;
+`
+const Pads = styled.div`
+  grid-area: pads;
+  height: 100%;
 `
 
 class App extends Component {
@@ -104,14 +127,18 @@ class App extends Component {
       <Wrapper>
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet" />
         <Drum id="drum-machine">
-          <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
-          <ControlPanel
-            switchedOn={this.state.switchedOn}
-            name={this.state.name}
-            handlePowerSwitch={this.handlePowerSwitch}
-            handleBankSwitch={this.handleBankSwitch}
-            handleVolumeChange={this.handleVolumeChange}
-          />
+          <Pads>
+            <DrumPads handleDrumClick={this.handleDrumClick} bank={this.state.bank} />
+          </Pads>
+          <Controls>
+            <ControlPanel
+              switchedOn={this.state.switchedOn}
+              name={this.state.name}
+              handlePowerSwitch={this.handlePowerSwitch}
+              handleBankSwitch={this.handleBankSwitch}
+              handleVolumeChange={this.handleVolumeChange}
+            />
+          </Controls>
         </Drum>
       </Wrapper>
     )

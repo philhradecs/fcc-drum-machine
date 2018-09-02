@@ -9,6 +9,11 @@ const Slider = styled.div`
   justify-content: center;
 `
 
+const sliderStyle = {
+  width: '200px',
+  outline: 'none'
+}
+
 class VolumeSlider extends Component {
   render () {
     return (
@@ -20,6 +25,7 @@ class VolumeSlider extends Component {
           defaultValue="0.5"
           step="0.01"
           onChange={this.props.handleChange}
+          style={sliderStyle}
         />
       </Slider>
     )

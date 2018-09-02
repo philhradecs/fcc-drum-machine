@@ -8,8 +8,9 @@ const PanelWrapper = styled.div`
   grid-template-rows: 120px 1fr;
   grid-template-columns: 1fr;
   background-color: brown;
-  margin: 14px;
   border: 1px solid white;
+  height: 100%;
+  box-sizing: border-box;
 `
 
 class ControlPanel extends Component {

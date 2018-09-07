@@ -82,7 +82,7 @@ class App extends Component {
 
   handleKeyDown (event) {
     if (event.key) {
-      // only process truthy values for key name
+      // only process truthy values for key name (avoid problems with test suite)
       const audio = document.getElementById(event.key.toUpperCase())
       if (audio) {
         // an element with the id of the pressed key name actually exists

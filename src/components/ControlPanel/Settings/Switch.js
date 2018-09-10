@@ -48,7 +48,9 @@ class Switch extends Component {
     return (
       <Wrapper>
         <Label>{this.props.labelLeft}</Label>
-        <Toggle type="checkbox" onChange={this.props.handleChange} />
+        <div>
+          <Toggle type="checkbox" onChange={this.props.handleChange} />
+        </div>
         <Label>{this.props.labelRight}</Label>
       </Wrapper>
     )

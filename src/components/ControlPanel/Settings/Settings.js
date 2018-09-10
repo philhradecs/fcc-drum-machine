@@ -4,8 +4,7 @@ import Switch from './Switch'
 import VolumeSlider from './VolumeSlider'
 
 const SettingsWrapper = styled.div`
-  background-color: gray;
-  color: lightblue;
+  background-color: #666;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr;

@@ -84,7 +84,7 @@ class App extends Component {
     let key = event.key;
     if (key) {
       // only process truthy values for key name (avoid problems with test suite)
-      if (key == 'y') { // for european keyboards
+      if (key === 'y') { // for european keyboards
         key = 'z';
       }
       const audio = document.getElementById(key.toUpperCase())
